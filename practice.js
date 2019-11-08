@@ -84,32 +84,53 @@ var nums = [1, 2, 3, 6, 22, 98, 45, 23, 22, 12];
 */
 
 //Code Here
-var evenArray = []
-function evenFinder(nums){
-  for(let i = 0; i < nums.length; i++){
-  if(nums[i]  % 2 === 0){
-    evenArray.push(nums[i])
-  } 
-
+var evenArray = [];
+function evenFinder(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 === 0) {
+      evenArray.push(nums[i]);
+    }
   }
- return evenArray;
+  return evenArray;
 }
-
 
 /////////////////////// EXTRA PRACTICE PROBLEMS BELOW ////////////////////
 ////////// MOVE ONTO NEXT SECTION BEFORE WORKING ON THESE ////////////////
-
-////////// PROBLEM 6 //////////
-
 // Do not edit the code below.
 var numbersArray = [1, 2, 34, 54, 55, 34, 32, 11, 19, 17, 54, 66, 13];
 // Do not edit the code above.
 
 /*
-  Write a function called divider that is given one argument, numbersArray.
-  Have divider return an array with the first item in the array being the evens array (all the even values from numbersArray)
-  and the second item in the array being the odds array (all the odd values from numbersArray).
+Write a function called divider that is given one argument, numbersArray.
+Have divider return an array with the first item in the array being the evens array (all the even values from numbersArray)
+and the second item in the array being the odds array (all the odd values from numbersArray).
 */
+
+var oddArray = [];
+function oddFinder(numbersArray) {
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 1) {
+      oddArray.push(numbersArray[i]);
+    }
+  }
+  return oddArray;
+}
+////////// PROBLEM 6 //////////
+var evenArray2 = [];
+function evenFinders(numbersArray) {
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0) {
+      evenArray2.push(numbersArray[i]);
+    }
+  }
+  return evenArray2;
+}
+
+function divider(numbersArray) {
+  let newArr = [];
+  newArr.push(evenFinders(numbersArray), oddFinder(numbersArray));
+  return newArr;
+}
 
 //Code Here
 
@@ -128,8 +149,20 @@ var getRandomArbitrary = function() {
   Write a function named finder that will take in an array as an argument.
   In the function create a variable called randomNumber and set it to the invocation of getRandomArbitrary.
   Loop through the array to see if randomNumber is in the array. 
-  If it is, return true, if it's not, return false
+  If it is, return true, if it's not, return false. for(i=0; i<randomNumber;i++){
 */
+function finder(arr) {
+  var randomNumber = getRandomArbitrary();
+  if (
+    arr.find(function(v) {
+      return v === randomNumber;
+    })
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 //Code Here
 
@@ -143,7 +176,11 @@ var myGroceryList = ["chips", "pizza", "hotpockets", "MtnDew", "corndogs"];
   Here we're going to write a function that mimics going shopping and checking things off of our grocery list and adding new items to our list.
 
   Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an item to remove from myGroceryList. 
+
+
   If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list.
+
+
 
   Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
@@ -158,8 +195,24 @@ var myGroceryList = ["chips", "pizza", "hotpockets", "MtnDew", "corndogs"];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem(myGroceryList, item) {
+  if (myGroceryList && item) {
+    for (i = 0; i < myGroceryList.length; i++) {
+      if (myGroceryList[i] === item) {
+        myGroceryList.splice(myGroceryList[i], 1);
+      }
+    }
+    return myGroceryList;
+  } else return [];
+}
 
+//Code Here
+// function removeItem(myGroceryList,item){
+//   if( itemIndex = myGroceryList.findIndex(item)){
+//     return myGroceryList.splice(itemIndex,1)}
+//   else {return myGroceryList;}
+
+// }
 ////////// PROBLEM 9 //////////
 
 /*
